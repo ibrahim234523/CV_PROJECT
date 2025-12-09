@@ -1,0 +1,32 @@
+# Ignore everything by default
+*
+
+# --- Allow only the files you want to push ---
+
+# Allow Jupyter notebooks
+!*.ipynb
+
+# Allow HTML files
+!*.html
+
+# Allow JavaScript files
+!*.js
+
+# Allow JSON files
+!*.json
+
+# Allow XML files
+!*.xml
+
+# Allow videos
+!*.mp4
+
+# Allow datasets (your folders)
+!converted_images_preprocessed/
+!converted_jpg/
+
+# Allow the README
+!README.md
+
+# Allow gitignore itself
+!.gitignore

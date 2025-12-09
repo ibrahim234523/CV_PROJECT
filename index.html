@@ -1,0 +1,103 @@
+html file 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Point Cloud Viewer</title>
+
+<style>
+    html, body {
+        height: 100%;
+    }
+    body {
+        margin: 0;
+        overflow: hidden;
+        background: black;
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    }
+
+    #hud {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #f7f7f7;
+        padding: 10px 14px;
+        border-radius: 6px;
+        font-size: 13px;
+        line-height: 1.4;
+        pointer-events: none;
+        white-space: nowrap;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    }
+
+    #imagePopup {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.75);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+        z-index: 10;
+    }
+
+    #imagePopup.visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    #imagePopup .popup-inner {
+        width: min(80vw, 960px);
+        height: min(80vh, 680px);
+        border: 2px solid #fff;
+        background: #000;
+        padding: 12px;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    #imagePopup img {
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        display: block;
+        object-fit: cover;
+    }
+
+    #closePopup {
+        color: #f7f7f7;
+        cursor: pointer;
+        font-size: 14px;
+        text-align: center;
+        letter-spacing: 0.04em;
+    }
+</style>
+</head>
+
+<body>
+    <canvas id="c"></canvas>
+    <div id="hud">Initializing viewer...</div>
+    <div id="imagePopup">
+        <div class="popup-inner">
+            <img id="popupImg" src="" alt="Camera View">
+            <div id="closePopup">Close (C)</div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js",
+            "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
