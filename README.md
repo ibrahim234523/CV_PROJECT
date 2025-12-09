@@ -35,7 +35,7 @@ Solve PnP (RANSAC) to estimate the new camera pose
 Triangulate new points using the new pose and a previous view
 (Optional) Run a local bundle adjustment on the latest pose + points
 
-Phase 4 — Data Post-Processing & Coordinate Alignment
+# Phase 4 — Data Post-Processing & Coordinate Alignment
 Overview
 Parse camera extrinsics (R,t) from XML outputs (Agisoft/SfM)
 Compute world-space camera centers using 
@@ -44,7 +44,7 @@ Apply Statistical Outlier Removal (SOR) using Open3D to reduce floating noise
 Generate a sequential view graph to define valid navigation paths
 Export optimized assets (JSON poses, binary PLY cloud) for the web engine
 
-Phase 5 — Interactive Web Visualization (Three.js)
+# Phase 5 — Interactive Web Visualization (Three.js)
 Overview
 Initialize WebGL rendering context, scene, and camera frustum
 Async load the sparse point cloud and camera marker geometry
@@ -53,8 +53,8 @@ Implement dual navigation logic: Free Orbit vs. Horizon-Stabilized view
 Apply SLERP (Spherical Linear Interpolation) for smooth rotational transitions
 Handle keyboard events for UI toggling, re-centering, and state switching
 
-## Notebook 19.ipynb
-The `19.ipynb` notebook walks through the entire SfM pipeline on the provided `converted_jpg` image set and produces the intermediate artifacts consumed by the viewer:
+## Notebook 19.ipynb Description
+The notebook walks through the entire SfM pipeline on the provided image set and produces the intermediate artifacts consumed by the viewer:
 
 - **Image loading & preprocessing** – images are natural-sorted, converted to grayscale, sharpened, Laplacian-enhanced, and written to `converted_images_preprocessed/` for downstream steps while also being cached in-memory for visualization.
 - **Feature extraction & pair scoring** – SIFT keypoints/descriptors are computed for every preprocessed image, then brute-force matches with a Lowe ratio test build `pair_scores`. A disparity heuristic picks the best stereo pair for two-view initialization.
